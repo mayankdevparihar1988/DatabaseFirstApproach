@@ -25,3 +25,10 @@ dotnet ef dbcontext scaffold Name=ConnectionStrings:DefaultConnection Microsoft.
   </ItemGroup>
 
 ``
+
+## Ignoring Jsonseralization for circular dependancy
+
+[JsonIgnore]
+    [ForeignKey("AuthorId")]
+    [InverseProperty("BookAuthors")]
+    public virtual Author Author { get; set; } = null!;
